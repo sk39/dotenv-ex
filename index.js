@@ -4,14 +4,15 @@ const config_path = path.resolve(".env");
 
 const dotenvFiles = [
     `${config_path}.local`,
+    `${config_path}.${process.env.NODE_ENV}`,
+    `${config_path}`
 ]
-if (process.env.NODE_ENV) {
-    dotenvFiles.push(`${config_path}.${process.env.NODE_ENV}`)
-}
-dotenvFiles.push(`${config_path}`)
+let keys = {};
 dotenvFiles.forEach(path => {
-    let _v = dotenv.config({path, silent: true})
-    console.log(_v);
+    const _env = dotenv.config({path, silent: false})
+    if (_env.parsed) {
+        Object.keys(_env.parsed).forEach(key => keys[key] = true)
+    }
 })
 
 function middleware(value) {
@@ -21,15 +22,12 @@ function middleware(value) {
     return value || null;
 }
 
-
 function config() {
     let env = {};
-    for (let key in process.env) {
-        if (process.env[key]) {
-            env[`process.env.${key}`] = middleware(process.env[key])
-        }
-    }
-
+    Object.keys(keys).forEach(key => {
+        if (process.env[key] != null)
+            env[key] = middleware(process.env[key])
+    })
     return env;
 }
 

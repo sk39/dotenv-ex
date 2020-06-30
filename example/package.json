@@ -5,13 +5,15 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js --experimental-modules",
-    "start:prod": "cross-env NODE_ENV=prod node index.js --experimental-modules",
+    "start:stg": "cross-env NODE_ENV=stg node index.js",
+    "start:prod": "cross-env NODE_ENV=prod node index.js",
+    "start:prod2": "cross-env NODE_ENV=prod NUMBER_FLAG=999 node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "dotenv-ex": "file:.."
+    "@sk39/dotenv-ex": "file:.."
   },
   "devDependencies": {
     "cross-env": "^7.0.2"
