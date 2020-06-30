@@ -2,7 +2,6 @@
 Dotenv extension. Switch settings with NODE_ENV.
 
 [![NPM](https://img.shields.io/npm/v/@sk39/dotenv-ex.svg)](https://www.npmjs.com/package/@sk39/dotenv-ex) 
-8
 
 ## Install
 
