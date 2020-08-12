@@ -34,7 +34,7 @@ You can overwrite the NODE_ENV specific settings by creating a `.env.{NODE_ENV}`
 `process.env` now has the keys and values you defined in your `.env` file.
 
 ```javascript
-const env = require("dotenv-ex").config();
+const env = require("@sk39/dotenv-ex").config();
 console.log(process.env.SERVER_URL)
 ```
 
