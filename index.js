@@ -3,8 +3,9 @@ const path = require("path");
 const config_path = path.resolve(".env");
 
 const dotenvFiles = [
-    `${config_path}.local`,
+    `${config_path}.${process.env.NODE_ENV}.local`,
     `${config_path}.${process.env.NODE_ENV}`,
+    `${config_path}.local`,
     `${config_path}`
 ]
 let keys = {};

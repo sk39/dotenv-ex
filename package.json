@@ -1,6 +1,6 @@
 {
   "name": "@sk39/dotenv-ex",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Dotenv extension. Switch settings with NODE_ENV",
   "main": "index.js",
   "scripts": {
